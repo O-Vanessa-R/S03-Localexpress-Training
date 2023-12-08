@@ -1,0 +1,16 @@
+start
+:Commencer;
+:Voir les produits disponibles;
+
+while (Shopping en cours)
+    fork
+        :Ajouter un produit dans mon panier;
+    fork again
+        :Voir le détail d'un produit;
+    fork again
+        :Modifier le panier;
+    end fork
+endwhile (Shopping terminé)
+:Voir le montant total de mon panier;
+:Valider ma commande;
+end

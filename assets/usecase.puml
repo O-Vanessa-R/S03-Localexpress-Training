@@ -1,0 +1,18 @@
+left to right direction
+
+actor "Client" as User
+actor "Commerçant" as Admin
+
+rectangle "Produits" {
+   usecase "Sélectionner des produits" as uc1
+   usecase "Gérer les produits" as uc2
+}
+rectangle "Commande" {
+   usecase "Valider une commande" as uc3
+   usecase "Gérer les commandes" as uc4
+}
+
+User --> uc1
+User --> uc3
+Admin --> uc2
+Admin --> uc4

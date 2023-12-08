@@ -1,0 +1,39 @@
+left to right direction
+
+entity "Produit" as produit {
+    * id
+    --
+    * nom
+    * description
+    * prix
+    * image
+    * categorie
+}
+
+entity "Panier" as panier {
+    * id
+    --
+    * quantite
+}
+
+entity "Commande" as commande {
+    * id
+    --
+    * id_panier
+    * id_user
+    * prix
+    * date
+}
+
+entity "User" as user {
+    * id
+    --
+    * nom
+    * prenom
+    * adresse
+    * telephone
+}
+
+produit }o--o{ panier
+panier ||--|| commande
+user ||--o{ commande

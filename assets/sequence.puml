@@ -1,0 +1,10 @@
+actor "Client" as User
+participant "Panier" as Cart
+
+User -> Cart : Ajouter un produit dans mon panier
+activate Cart
+Cart -> Cart : Vérifier si le produit est déjà dans le panier
+Cart -> Cart : Si oui, augmenter la quantité
+Cart -> Cart : Si non, ajouter le produit
+Cart -> User
+deactivate Cart
