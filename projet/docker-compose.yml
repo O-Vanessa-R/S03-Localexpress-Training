@@ -7,5 +7,7 @@ services:
       - ./frontend:/frontend
     ports:
       - "5173:5173"
+    environment:
+      - VITE_API_URL=http://jeremydfr-server.eddi.cloud:3000
     working_dir: /frontend
     command: npm run setup
