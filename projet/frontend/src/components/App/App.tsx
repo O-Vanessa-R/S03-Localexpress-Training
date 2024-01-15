@@ -1,12 +1,15 @@
 import Header from './Header/Header';
-import Footer from './Footer/Footer';
+
 import './App.scss';
+import Footer from './Footer/Footer';
+import Content from './Content/Content';
 
 
-const App = () => {
+function App() {
   return (
     <div className="app">
       <Header />
+      <Content />
       <Footer />
     </div>
   );
