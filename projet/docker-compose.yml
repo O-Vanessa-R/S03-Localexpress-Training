@@ -11,3 +11,26 @@ services:
       - VITE_API_URL=http://jeremydfr-server.eddi.cloud:3000
     working_dir: /frontend
     command: npm run setup
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - 3000:3000
+    working_dir: /app/backend
+    command: npm run dev
+  
+  db:
+    image: postgres:alpine
+    volumes:
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./backend/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=oclock
+      - POSTGRES_PASSWORD=password
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
