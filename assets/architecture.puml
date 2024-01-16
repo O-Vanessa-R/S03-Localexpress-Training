@@ -1,0 +1,30 @@
+@startuml architecture
+
+node "Frontend" {
+    component Client [
+        App React
+        node:18-alpine
+    ]
+}
+
+node "Backend" {
+    component NodeJs [
+        NodeJs
+        node:18-alpine
+    ]
+    port API
+    API - [NodeJs]
+}
+
+database "PostgreSQL" as pgsql {
+    component PostgreSQL [
+        PostgreSQL
+        postgis/postgis:13-master
+    ]
+}
+
+[Client] --- API
+[PostgreSQL] -down- [NodeJs]
+[Adminer] --- [PostgreSQL]
+
+@enduml

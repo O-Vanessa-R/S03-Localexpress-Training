@@ -4,6 +4,7 @@ on:
   push:
     branches: 
       - correction-j2
+      - correction-j3
 
 concurrency: 
   group: "surge"
