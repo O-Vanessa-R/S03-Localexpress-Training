@@ -1,8 +1,11 @@
+import { SyntheticEvent, useState } from "react";
 import { Product } from "../../../../@types/products";
 
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
 import { add, increment } from "../../../../store/features/cart/cartSlice";
 import isInCart from "../../../../store/selectors/isInCart";
+import Modal from "../../Modal";
+import { createPortal } from "react-dom";
 
 interface ProductItemProps {
   product: Product;
@@ -11,6 +14,7 @@ interface ProductItemProps {
 function ProductItem({ product }: ProductItemProps) {
   const alreadyInCart = useAppSelector(isInCart(product.id));
   const dispatch = useAppDispatch();
+  const [showModal, setShowModal] = useState(false);
 
   const addToCart = () => {
     if (alreadyInCart) {
@@ -20,8 +24,19 @@ function ProductItem({ product }: ProductItemProps) {
     }
   };
 
+  const openModal = () => {
+    console.log("Je suis dans openModal");
+    setShowModal(true);
+  };
+
+  const closeModal = (e: SyntheticEvent) => {
+    console.log("Je suis dans closeModal");
+    e.stopPropagation();
+    setShowModal(false);
+  };
+
   return (
-    <article className="product-item">
+    <article className="product-item" onClick={openModal}>
       <header>
         <h3>{product.title}</h3>
       </header>
@@ -38,6 +53,12 @@ function ProductItem({ product }: ProductItemProps) {
         <button type="button" onClick={addToCart}>
           Ajouter
         </button>
+
+        {showModal &&
+          createPortal(
+            <Modal product={product} onClose={closeModal} />,
+            document.body
+          )}
       </div>
     </article>
   );

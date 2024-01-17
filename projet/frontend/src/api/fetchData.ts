@@ -13,7 +13,7 @@ export default async function fetchData<T>(endpoint: Endpoint) {
 
 export const delayedFetchData = (endpoint: Endpoint) => {
   const delayedPromise = new Promise((resolve) =>
-    setTimeout(resolve, 5000)
+    setTimeout(resolve, 3000)
   ).then(async () => {
     return await fetchData(endpoint);
   });
