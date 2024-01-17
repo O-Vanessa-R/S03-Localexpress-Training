@@ -13,16 +13,20 @@ const Modal = ({ product, onClose }: ModalProps) => {
     <div className="modal">
       <div className="modal__content">
         <h2>{product.title}</h2>
-        <img
-          src={product.images[0]}
-          alt={product.title}
-          className="modal-image"
-        />
-        <img
-          src={product.thumbnail}
-          alt={product.title}
-          className="modal-image"
-        />
+
+        {product.thumbnail ? (
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            className="modal-image"
+          />
+        ) : (
+          <img
+            src={product.images[0]}
+            alt={product.title}
+            className="modal-image"
+          />
+        )}
         <h3>
           {product.brand && (
             <>
@@ -30,7 +34,6 @@ const Modal = ({ product, onClose }: ModalProps) => {
               <br />
             </>
           )}
-          <br />
           Catégorie : {product.category}
           <br />
           Description : {product.description}

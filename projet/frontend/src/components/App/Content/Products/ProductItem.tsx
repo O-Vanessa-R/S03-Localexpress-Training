@@ -25,12 +25,10 @@ function ProductItem({ product }: ProductItemProps) {
   };
 
   const openModal = () => {
-    console.log("Je suis dans openModal");
     setShowModal(true);
   };
 
   const closeModal = (e: SyntheticEvent) => {
-    console.log("Je suis dans closeModal");
     e.stopPropagation();
     setShowModal(false);
   };
