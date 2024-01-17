@@ -34,7 +34,7 @@ ul {
 input {
   height: v.$gutter * 1.5;
   line-height: v.$gutter * 1.5;
-  
+
   &[name="qty"] {
     border: 1px solid rgba(v.$color-light, .3);
     width: 2.5rem;

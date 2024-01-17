@@ -18,3 +18,7 @@ export interface ProductsData {
   skip: number;
   limit: number;
 }
+
+export interface ProductInCart extends Product {
+  quantity: number;
+}

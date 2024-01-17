@@ -1,5 +1,5 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ProductInCart } from '../../../@types/products';
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { ProductInCart } from "../../../@types/products";
 
 export interface CartState {
   products: ProductInCart[];
@@ -10,16 +10,16 @@ export const initialState: CartState = {
 };
 
 export const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     add: (state, action: PayloadAction<ProductInCart>) => {
       state.products.push(action.payload);
     },
     remove: (state, action: PayloadAction<number>) => {
-      state.products = state.products.filter((product) => (
-        product.id !== action.payload
-      ));
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload
+      );
     },
     increment: (state, action: PayloadAction<number>) => {
       state.products = state.products.map((product) => {
@@ -28,9 +28,9 @@ export const cartSlice = createSlice({
         }
 
         return product;
-      }); 
+      });
     },
-    quantity: (state, action: PayloadAction<{ id: number, qty: number }>) => {
+    quantity: (state, action: PayloadAction<{ id: number; qty: number }>) => {
       state.products = state.products.map((product) => {
         if (product.id === action.payload.id) {
           product.quantity = action.payload.qty;
@@ -47,4 +47,5 @@ export const cartSlice = createSlice({
 
 export const { add, increment, remove, quantity, empty } = cartSlice.actions;
 
+// Pas obligatoire d'export default
 export default cartSlice.reducer;

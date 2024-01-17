@@ -21,4 +21,56 @@ $product-img-width: 25%;
       margin-bottom: 0;
     }
   }
+
+  &-products {
+    border-left: 1px solid rgba(v.$color-light, .3);
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-left: v.$gutter * 2;
+  }
+
+  &-product {
+    display: flex;
+    flex-direction: row;
+    gap: v.$gutter;
+    margin-bottom: v.$gutter;
+    width: 100%;
+
+    img {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      width: $product-img-width;
+    }
+
+    div {
+      flex-grow: 1;
+      min-width: 0;
+
+      h3 {
+        margin: 0;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    button {
+      width: v.$gutter;
+      padding: 0;
+    }
+  }
+
+  &-total {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    strong {
+      font-size: f.rem(34px);
+      line-height: v.$gutter * 3;
+    }
+  }
 }

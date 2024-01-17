@@ -1,12 +1,16 @@
-import { useState, useEffect } from 'react';
-import fetchData from '../../../../api/fetchData';
-import { Product, ProductsData } from '../../../../@types/products';
+import { useState, useEffect } from "react";
+import fetchData, { delayedFetchData } from "../../../../api/fetchData";
+import { Product, ProductsData } from "../../../../@types/products";
 
-function ProductsList() {
+const ressource = delayedFetchData("/products");
+
+const ProductsList = () => {
+  ressource.read();
+
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetchData<ProductsData>('/products')
+    fetchData<ProductsData>("/products")
       .then((data) => {
         setProducts(data.products);
       })
@@ -20,6 +24,6 @@ function ProductsList() {
       <pre>{JSON.stringify(products, null, 4)}</pre>
     </div>
   );
-}
+};
 
 export default ProductsList;

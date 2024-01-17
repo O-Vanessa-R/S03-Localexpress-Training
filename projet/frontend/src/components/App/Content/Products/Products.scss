@@ -8,9 +8,59 @@
   padding: 0 2rem 1rem;
 
   .product-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+    .product-category {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+
+      h2 {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  .product-item {
+    cursor: pointer;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-    padding: 0 1rem;
+    padding: v.$gutter;
+    background: #fafafa;
+
+    header {
+      align-items: center;
+      display: flex;
+      grid-column: span 2;
+    }
+
+    img {
+      height: v.$gutter * 10;
+      object-fit: cover;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      span {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      button {
+        margin: 0 0 0 auto;
+      }
+    }
+
+    abbr {
+      text-decoration: none;
+    }
   }
 }

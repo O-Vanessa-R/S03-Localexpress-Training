@@ -1,7 +1,7 @@
-import Products from './Products/Products';
-import Cart from './Cart/Cart';
+import Products from "./Products/Products";
+import Cart from "./Cart/Cart";
 
-import './Content.scss';
+import "./Content.scss";
 
 function Content() {
   return (
