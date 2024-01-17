@@ -16,7 +16,8 @@ function ProductItem({ product }: ProductItemProps) {
   const dispatch = useAppDispatch();
   const [showModal, setShowModal] = useState(false);
 
-  const addToCart = () => {
+  const addToCart = (e: SyntheticEvent) => {
+    e.stopPropagation();
     if (alreadyInCart) {
       dispatch(increment(product.id));
     } else {
