@@ -5,6 +5,7 @@ on:
     branches: 
       - correction-j2
       - correction-j3
+      - correction-j4
 
 concurrency: 
   group: "surge"
